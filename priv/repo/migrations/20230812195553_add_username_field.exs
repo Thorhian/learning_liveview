@@ -5,5 +5,7 @@ defmodule Pento.Repo.Migrations.AddUsernameField do
     alter table(:users) do
       add :username, :string, null: false, default: ""
     end
+
+    create unique_index(:users, [:username])
   end
 end

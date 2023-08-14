@@ -48,11 +48,11 @@ defmodule PentoWeb.UserRegistrationLiveTest do
       assert redirected_to(conn) == ~p"/"
 
       # Now do a logged in request and assert on the menu
-      conn = get(conn, "/")
+      conn = get(conn, ~p"/guess")
       response = html_response(conn, 200)
       assert response =~ email
-      assert response =~ "Settings"
-      assert response =~ "Log out"
+      assert response =~ ~p"/users/settings"
+      assert response =~ ~p"/users/log_out"
     end
 
     test "renders errors for duplicated email", %{conn: conn} do
